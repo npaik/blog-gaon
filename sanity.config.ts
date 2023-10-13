@@ -21,6 +21,8 @@ import {
 } from '~/lib/sanity.api'
 import { schema } from '~/schemas'
 
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
+
 const iframeOptions = {
   url: defineUrlResolver({
     base: '/api/draft',
@@ -39,6 +41,7 @@ export default defineConfig({
   //edit schemas in './src/schemas'
   schema,
   plugins: [
+    vercelDeployTool(),
     deskTool({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // You can add any React component to `S.view.component` and it will be rendered in the pane
